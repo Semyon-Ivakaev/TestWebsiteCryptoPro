@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
-from .locators import HeaderLocators, FirstMenuLocators, SecondMenuLocators
+from .locators import HeaderLocators, FirstMenuLocators, SecondMenuLocators, ThirdMenuLocators
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
@@ -71,3 +71,19 @@ class BasePage():
         self.browser.find_element(*HeaderLocators.CSP).click()
         check = self.browser.find_element(*SecondMenuLocators.TAG_CSP).text
         assert check == "КриптоПро CSP", 'Message - "КриптоПро CSP" on page not found'
+
+    def guest_go_to_using(self):
+        action = ActionChains(self.browser)
+        Open_second_menu = self.browser.find_element(*HeaderLocators.PRODUCTS)
+        action.move_to_element(Open_second_menu).perform()
+        Open_third_menu = self.browser.find_element(*HeaderLocators.CSP)
+        action.move_to_element(Open_third_menu).perform()
+        self.browser.find_element(*HeaderLocators.USING).click()
+        check = self.browser.find_element(*ThirdMenuLocators.TAG_USING).text
+        assert check == "Использование КриптоПро CSP",  'Message - "Использование КриптоПро CSP" on page not found'
+
+    def guest_click_on_developers(self):
+        self.browser.find_element(*HeaderLocators.DEVELOPERS).click()
+        check = self.browser.find_element(*HeaderLocators.DEVELOPERS_GUIDES).text
+        print(check)
+        assert check == "Руководства разработчика", 'Message - "Руководства разработчика" on page not found'

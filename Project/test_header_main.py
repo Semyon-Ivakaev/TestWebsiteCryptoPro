@@ -9,7 +9,7 @@ class TestCrypto:
     def setup(self, browser):
         link = "https://www.ctm.ru/"
 
-    @pytest.mark.skip
+
     def test_guest_go_to_about_company(self, browser):
         link = "https://www.cryptopro.ru/"
         page = MainPage(browser, link)
@@ -17,43 +17,57 @@ class TestCrypto:
         page.guest_go_to_about_company()
         print("Test is Ok")
 
-    @pytest.mark.skip
+
     def test_guest_go_to_contacts(self, browser):
         link = "https://www.cryptopro.ru/"
         page = MainPage(browser, link)
         page.open()
         page.guest_go_to_contacts()
 
-    @pytest.mark.skip
+
     def test_guest_go_to_scheme(self, browser):
         link = "https://www.cryptopro.ru/"
         page = MainPage(browser, link)
         page.open()
         page.guest_go_to_scheme()
 
-    @pytest.mark.skip
+
     def test_guest_go_to_news(self, browser):
         link = "https://www.cryptopro.ru/"
         page = MainPage(browser, link)
         page.open()
         page.guest_go_to_news()
 
-    @pytest.mark.skip
+
     def test_guest_go_to_licenses(self, browser):
         link = "https://www.cryptopro.ru/"
         page = MainPage(browser, link)
         page.open()
         page.guest_go_to_licenses()
 
-    @pytest.mark.skip
+
     def test_guest_go_to_product(self, browser):
         link = "https://www.cryptopro.ru/"
         page = MainPage(browser, link)
         page.open()
         page.guest_go_to_products()
 
+
     def test_guest_go_to_CSP(self, browser):
         link = "https://www.cryptopro.ru/"
         page = MainPage(browser, link)
         page.open()
         page.guest_go_to_CSP()
+
+
+    def test_guest_go_to_using(self, browser):
+        link = "https://www.cryptopro.ru/"
+        page = MainPage(browser, link)
+        page.open()
+        page.guest_go_to_using()
+
+    def test_guest_click_on_developers(self, browser):
+        link = "https://www.cryptopro.ru/"
+        page = MainPage(browser, link)
+        page.open()
+        page.guest_click_on_developers()
